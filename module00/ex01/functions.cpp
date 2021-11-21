@@ -12,44 +12,60 @@
 
 #include "phonebook.hpp"
 
-void	Human::setName(std::string str) {
+void	Contact::setName(std::string str) {
 	this->name = str;
 }
 
-void	Human::setLastName(std::string str) {
+void	Contact::setLastName(std::string str) {
 	this->lastName = str;
 }
 
-void	Human::setNickName(std::string str) {
+void	Contact::setNickName(std::string str) {
 	this->nickName = str;
 }
 
-void	Human::setPhoneNumber(std::string str) {
+void	Contact::setPhoneNumber(std::string str) {
 	this->phoneNumber = str;
 }
 
-void	Human::setSecret(std::string str) {
+void	Contact::setSecret(std::string str) {
 	this->secret = str;
+}
+
+void	Contact::setIndex(int index) {
+	this->index = index;
+}
+
+void	Phonebook::setCountContact(int i) {
+	this->countContact = i;
 }
 
 /* ************************************************************************** */
 
-std::string	Human::getName() {
+std::string	Contact::getName() {
 	return this->name;
 };
 
-std::string	Human::getLastName() {
+std::string	Contact::getLastName() {
 	return this->lastName;
 };
 
-std::string	Human::getNickName() {
+std::string	Contact::getNickName() {
 	return this->nickName;
 };
 
-std::string Human::getPhoneNumber() {
+std::string Contact::getPhoneNumber() {
 	return this->phoneNumber;
 }
 
-std::string Human::getSecret() {
+std::string Contact::getSecret() {
 	return this->secret;
+}
+
+int	Contact::getIndex() {
+	return this->index;
+}
+
+int	Phonebook::getCountContact() {
+	return this->countContact;
 }

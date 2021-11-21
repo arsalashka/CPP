@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CPP_PHONEBOOK_HPP
-#define CPP_PHONEBOOK_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-class	Human {
+class	Contact {
 
 private:
 	int			index;
@@ -27,6 +28,7 @@ private:
 	std::string	secret;
 
 public:
+	Contact();
 	void	setName(std::string str);
 	void	setLastName(std::string str);
 	void	setNickName(std::string str);
@@ -44,14 +46,14 @@ public:
 class	Phonebook {
 
 private:
-//	int		count;
-	Human	human[8];
+	int		countContact;
+	Contact	contact[8];
 public:
-	void	addHuman(int i);
+	Phonebook();
+	void	addContact(int i);
+	void	setCountContact(int count);
 
+	int		getCountContact();
 };
-
-
-
 
 #endif
