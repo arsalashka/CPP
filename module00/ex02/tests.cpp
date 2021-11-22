@@ -58,7 +58,9 @@ int		main( void ) {
 	}
 
 	Account::displayAccountsInfos();
+	std::cout << "61" << std::endl;
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
+	std::cout << "63" << std::endl;
 
 	return 0;
 }

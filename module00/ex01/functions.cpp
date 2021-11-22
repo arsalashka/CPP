@@ -12,6 +12,9 @@
 
 #include "phonebook.hpp"
 
+/* SETTERS******************************************************************* */
+
+
 void	Contact::setName(std::string str) {
 	this->name = str;
 }
@@ -40,7 +43,7 @@ void	Phonebook::setCountContact(int i) {
 	this->countContact = i;
 }
 
-/* ************************************************************************** */
+/* GETTERS******************************************************************* */
 
 std::string	Contact::getName() {
 	return this->name;
@@ -68,4 +71,12 @@ int	Contact::getIndex() {
 
 int	Phonebook::getCountContact() {
 	return this->countContact;
+}
+
+Contact Phonebook::getContact(int i) {
+	return this->contact[i];
+}
+
+Contact *Phonebook::getContacts() {
+	return this->contact;
 }

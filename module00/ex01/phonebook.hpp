@@ -54,6 +54,10 @@ public:
 	void	setCountContact(int count);
 
 	int		getCountContact();
+	Contact	getContact(int i);
+	Contact	*getContacts();
+	bool	printContact(Contact *contacts, std::string index);
+
 };
 
 #endif
