@@ -25,7 +25,8 @@ void Karen::error() {
 }
 
 void Karen::wrong() {
-	std::cout << "[WRONG LEVEL]" << std::endl;
+	std::cout << "[ Probably complaining about insignificant "
+				 "problems ]" << std::endl;
 }
 
 void Karen::complain(std::string level) {
@@ -50,6 +51,21 @@ void Karen::complain(std::string level) {
 	while (i < 4 && level.compare(strings[i]) != 0)
 		i++;
 
-	(this->*methods[i])();
-
+	switch(i) {
+		case 0:
+			(this->*methods[0])();
+			std::cout << std::endl;
+		case 1:
+			(this->*methods[1])();
+			std::cout << std::endl;
+		case 2:
+			(this->*methods[2])();
+			std::cout << std::endl;
+		case 3:
+			(this->*methods[3])();
+			std::cout << std::endl;
+			break;
+		default:
+			(this->*methods[4])();
+	}
 }

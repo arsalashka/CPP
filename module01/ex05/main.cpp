@@ -3,12 +3,12 @@
 
 int main(void)
 {
-	Karen a, b;
+	Karen a;
 
 	a.complain("DEBUG");
 	a.complain("INFO");
-	b.complain("WARNING");
-	b.complain("ERROR");
+	a.complain("WARNING");
+	a.complain("ERROR");
 	a.complain("MUSIC");
-	b.complain("info");
+	a.complain("info");
 }
