@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME    =   replace
+NAME    =   program
 SRC     =   $(wildcard *.cpp)
 HDRS    =   $(wildcard *.hpp)
 OBJ     =   $(SRC:.cpp=.o)
