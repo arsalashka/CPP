@@ -10,19 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME    =   clapTrap
+NAME    =   animal
 SRC     =   $(wildcard *.cpp)
 HDRS    =   $(wildcard *.hpp)
 OBJ     =   $(SRC:.cpp=.o)
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 $(addprefix -I , $(HDRS))
-FLAGS2	=	-Wshadow -Wno-shadow
 CC      =   c++
 
 %.o : %.cpp
 	$(CC) $(FLAFS)-c $< -o $@
 
 $(NAME):	$(OBJ) $(HDRS)
-			$(CC) $(FLAGS) $(FLAGS2) $(SRC) -o $(NAME)
+			$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 all:		$(NAME)
 

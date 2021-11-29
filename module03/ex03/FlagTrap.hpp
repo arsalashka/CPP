@@ -7,10 +7,12 @@
 
 #include "ClapTrap.hpp"
 
-class FlagTrap: public ClapTrap {
+class FlagTrap: virtual public ClapTrap {
 
 public:
 	FlagTrap();
+	FlagTrap(FlagTrap &object);
+	FlagTrap &operator=(FlagTrap &object);
 	~FlagTrap();
 
 	void highFivesGuys(void);

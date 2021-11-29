@@ -12,6 +12,23 @@ ClapTrap::ClapTrap() {
 	std::cout << "New ClapTrap " << _name << " constructor :)" << std::endl;
 }
 
+ClapTrap::ClapTrap(ClapTrap &object)
+{
+	_name = object.getName();
+	_hp = object.getHp();
+	_ep = object.getEp();
+	_dmg = object.getDmg();
+}
+
+ClapTrap &ClapTrap::operator = (ClapTrap &object)
+{
+	_name = object.getName();
+	_hp = object.getHp();
+	_ep = object.getEp();
+	_dmg = object.getDmg();
+	return (*this);
+}
+
 ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap " << _name << " distructor :(" << std::endl;
 }

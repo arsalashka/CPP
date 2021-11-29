@@ -11,6 +11,8 @@ class FlagTrap: public ClapTrap {
 
 public:
 	FlagTrap();
+	FlagTrap(FlagTrap &object);
+	FlagTrap &operator=(FlagTrap &object);
 	~FlagTrap();
 
 	void highFivesGuys(void);

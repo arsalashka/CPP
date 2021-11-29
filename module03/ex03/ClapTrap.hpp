@@ -17,6 +17,8 @@ protected:
 
 public:
 	ClapTrap();
+	ClapTrap(ClapTrap &object);
+	ClapTrap &operator=(ClapTrap &object);
 	~ClapTrap();
 
 	std::string getName();

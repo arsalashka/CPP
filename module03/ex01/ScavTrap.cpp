@@ -12,6 +12,23 @@ ScavTrap::ScavTrap() {
 	std::cout << "New ScavTrap " << _name << " constructor :)" << std::endl;
 }
 
+ScavTrap::ScavTrap(ScavTrap &object)
+{
+	_name = object.getName();
+	_hp = object.getHp();
+	_ep = object.getEp();
+	_dmg = object.getDmg();
+}
+
+ScavTrap &ScavTrap::operator= (ScavTrap &object)
+{
+	_name = object.getName();
+	_hp = object.getHp();
+	_ep = object.getEp();
+	_dmg = object.getDmg();
+	return (*this);
+}
+
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap " << _name << " distructor :(" << std::endl;
 }

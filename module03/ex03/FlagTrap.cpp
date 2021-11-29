@@ -12,6 +12,23 @@ FlagTrap::FlagTrap() {
 	std::cout << "New FlagTrap " << _name << " constructor :)" << std::endl;
 }
 
+FlagTrap::FlagTrap(FlagTrap &object)
+{
+	_name = object.getName();
+	_hp = object.getHp();
+	_ep = object.getEp();
+	_dmg = object.getDmg();
+}
+
+FlagTrap &FlagTrap::operator=(FlagTrap &object)
+{
+	_name = object.getName();
+	_hp = object.getHp();
+	_ep = object.getEp();
+	_dmg = object.getDmg();
+	return (*this);
+}
+
 FlagTrap::~FlagTrap() {
 	std::cout << "FlagTrap " << _name << " distructor :(" << std::endl;
 }

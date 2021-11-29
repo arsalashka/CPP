@@ -14,7 +14,6 @@ int	main() {
 
 
 
-	std::cout << a.getHp() << std::endl;
 
 	return 0;
 }

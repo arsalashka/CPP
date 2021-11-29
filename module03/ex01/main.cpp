@@ -21,7 +21,7 @@ int	main() {
 	b->beRepaired(50);
 	b->guardGate();
 
-	std::cout << b->getHp() << std::endl;
+//	std::cout << b->getHp() << std::endl;
 
 	delete b;
 

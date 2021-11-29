@@ -2,17 +2,25 @@
 // Created by Mauro Early on 26/11/2021.
 //
 
-#include "FlagTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main() {
 
-	FlagTrap *a = new FlagTrap();
+	DiamondTrap *a = new DiamondTrap();
 
 	a->attack("Muchacho");
-	a->takeDamage(50);
-	a->beRepaired(20);
-
+	a->guardGate();
 	a->highFivesGuys();
+
+
+	a->FlagTrap::takeDamage(5);
+	a->ScavTrap::takeDamage(10);
+
+	a->FlagTrap::beRepaired(3);
+	a->ScavTrap::beRepaired(7);
+
+	a->whoAmI();
+
 
 
 
