@@ -37,6 +37,10 @@ Brain *Cat::getBrain() {
 	return _brain;
 }
 
+//std::string Cat::getType() const {
+//	return _type;
+//}
+
 void Cat::makeSound() const {
 	std::cout << "Meow-meow!" << std::endl;
 }

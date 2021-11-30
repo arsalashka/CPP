@@ -9,49 +9,69 @@
 
 int	main() {
 
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-
 	delete j;//should not create a leak
 	delete i;
 
+	std::cout << YELLOW << "=======================================\n" << RESET
+			  << std::endl;
+
+	int N = 10;
+
+	const Animal *animals[N];
+
+	for (int i = 0; i < N; i++) {
+		if (i < N/2) {
+			animals[i] = new Dog();
+			std::cout << std::endl;
+		} else {
+			animals[i] = new Cat();
+			std::cout << std::endl;
+		}
+	}
+
+	std::cout << YELLOW << "=======================================\n" << RESET
+		<< std::endl;
 
 
 
-//	const Animal* meta = new Animal();
-//	const Animal* j = new Dog();
-//	const Animal* i = new Cat();
-//
-//	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
-//
-//	std::cout << j->getType() << " " << std::endl;
-//	std::cout << i->getType() << " " << std::endl;
-//	i->makeSound(); //will output the cat sound!
-//	j->makeSound();
-//	meta->makeSound();
-//
-//	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
-//
-//	delete i;
-//	delete j;
-//	delete meta;
-//
-//	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
-//	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
-//
-//	const WrongAnimal *beta = new WrongAnimal();
-//	const WrongAnimal *wCat = new WrongCat;
-//
-//	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
-//
-//	beta->makeSound();
-//	wCat->makeSound();
-//
-//	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
-//
-//
-//	delete wCat;
-//	delete beta;
+	animals[3]->makeSound();
+	animals[6]->makeSound();
+
+
+	std::cout << YELLOW << "=======================================\n" << RESET
+			  << std::endl;
+
+	for (int i = 0; i < N; i++) {
+		delete animals[i];
+		std::cout << std::endl;
+	}
+
+
+	std::cout << YELLOW << "=======================================\n" << RESET
+			  << std::endl;
+	std::cout << YELLOW << "=======================================\n" << RESET
+			  << std::endl;
+
+	Dog a;
+
+	Dog b(a);
+
+	std::cout << b.getBrain()->getIdeas()[6] << std::endl;
+
+	std::cout << (b.getBrain()->getIdeas()[5]) << std:: endl;
+
+	std::cout << YELLOW << "=======================================\n" << RESET
+			  << std::endl;
+
+	Cat c;
+	Cat d(c);
+	std::cout << d.getBrain()->getIdeas()[9] << std::endl;
+
+	std::cout << (d.getBrain()->getIdeas()[3]) << std:: endl;
+
 
 	return 0;
 }

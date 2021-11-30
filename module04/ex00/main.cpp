@@ -33,11 +33,13 @@ int	main() {
 
 	const WrongAnimal *beta = new WrongAnimal();
 	const WrongAnimal *wCat = new WrongCat;
+	const WrongCat *wrongCat = new WrongCat();
 
 	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
 
 	beta->makeSound();
 	wCat->makeSound();
+	wrongCat->makeSound();
 
 	std::cout << YELLOW << "===========================\n" << RESET << std::endl;
 

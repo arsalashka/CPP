@@ -23,10 +23,8 @@ public:
 	Animal &operator=(Animal &obj);
 	virtual ~Animal();
 
-	std::string	getType() const;
-//	void 		setType(std::string type);
-
-	virtual void makeSound() const;
+	virtual std::string	getType() const;
+	virtual void makeSound() const = 0;
 };
 
 
