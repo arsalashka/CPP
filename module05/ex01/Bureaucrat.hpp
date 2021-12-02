@@ -13,6 +13,9 @@
 # define PINK		"\033[35m"
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 
@@ -40,6 +43,8 @@ public:
 	int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
+
+	void signForm(const Form &form);
 };
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);

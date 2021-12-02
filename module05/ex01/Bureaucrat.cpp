@@ -1,4 +1,4 @@
-//
+	//
 // Created by Mauro Early on 12/1/21.
 //
 
@@ -41,11 +41,11 @@ Bureaucrat::~Bureaucrat() {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-	return "1 - is the highest grade";
+	return "1 - is the highest grade of Bureaucrat";
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-	return "150 - is the lowest grade";
+	return "150 - is the lowest grade of Bureaucrat";
 }
 
 std::string Bureaucrat::getName() const {
@@ -73,4 +73,15 @@ void Bureaucrat::decrementGrade() {
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat) {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return os;
+}
+
+void Bureaucrat::signForm(const Form &form) {
+	if (form.getIsSigned()) {
+		std::cout << BLUE << _name << " signs " << form.getName()
+			<< RESET << std::endl;
+	} else {
+		std::cerr << PINK << _name << " cannot sign " << form.getName()
+			<< " because gradeSignIt = " << form.getGradeSignIt() << RESET
+			<< std::endl;
+	}
 }
