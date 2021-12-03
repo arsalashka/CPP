@@ -19,6 +19,7 @@ Form::Form(Form &obj): _name(obj.getName()), _isSigned(obj.getIsSigned()),
 	checkGrades();
 }
 
+//	can't assign Form's args, because const
 Form &Form::operator=(Form &obj) {
 	_isSigned = obj.getIsSigned();
 	return *this;
@@ -41,6 +42,10 @@ const char *Form::GradeTooHighException::what() const throw() {
 
 const char *Form::GradeTooLowException::what() const throw() {
 	return "form's grade is too high";
+}
+
+const char *Form::NotSignedYet::what() const throw() {
+	return "form not signed yet";
 }
 
 std::string Form::getName() const {
