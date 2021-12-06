@@ -56,9 +56,9 @@ Converter::Converter(std::string input): _input(input) {
 	this->checkChar();
 
 	std::cout << CYAN << "char:	" << this->_ch << RESET << std::endl;
-	std::cout << YELLOW << "int:	" << this->_int << RESET << std::endl;
+	std::cout << GREEN << "int:	" << this->_int << RESET << std::endl;
 	std::cout << MAGENTA << "float:	" << this->_fl << RESET << std::endl;
-	std::cout << BLUE << "double:	" << this->_doub << RESET <<std::endl;
+	std::cout << YELLOW << "double:	" << this->_doub << RESET <<std::endl;
 
 }
 
