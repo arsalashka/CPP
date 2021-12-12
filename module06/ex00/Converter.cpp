@@ -50,10 +50,10 @@ Converter::Converter(std::string input): _input(input) {
 	this->_fl = "impossible";
 	this->_ch = "impossible";
 
-	this->checkInt();
-	this->checkDouble();
-	this->checkFloat();
 	this->checkChar();
+	this->checkInt();
+	this->checkFloat();
+	this->checkDouble();
 
 	std::cout << CYAN << "char:	" << this->_ch << RESET << std::endl;
 	std::cout << GREEN << "int:	" << this->_int << RESET << std::endl;
@@ -64,35 +64,35 @@ Converter::Converter(std::string input): _input(input) {
 
 void Converter::checkDot() {
 
-	this->_dots = 0;
-	this->_validInput = true;
+	_dots = 0;
+	_validInput = true;
 
 	if(isInf() || isNan())
 		return;
 	else {
 		for (size_t i = 0; i < _input.length(); i++) {
 
-			if (this->_input[i] == '.') {
-				this->_dots++;
+			if (_input[i] == '.') {
+				_dots++;
 			}
-			else if (this->_input[i] == 'f' && i != this->_input.length() - 1) {
-				this->_validInput = false;
+			else if (_input[i] == 'f' && i != _input.length() - 1) {
+				_validInput = false;
 				return ;
 			}
-			else if (!isdigit(this->_input[i]) && this->_input[i] != 'f'
-					 && this->_input[i] != '.' && this->_input[i] != '+'
-					 && this->_input[i] != '-') {
-				this->_validInput = false;
+			else if (!isdigit(_input[i]) && _input[i] != 'f'
+					 && _input[i] != '.' && _input[i] != '+'
+					 && _input[i] != '-') {
+				_validInput = false;
 				return ;
 			}
 			else if ((this->_input[i] == '+' || this->_input[i] == '-')
 					 && (i != 0)) {
-				this->_validInput = false;
+				_validInput = false;
 				return ;
 			}
 		}
-		if (this->_dots > 1) {
-			this->_validInput = false;
+		if (_dots > 1) {
+			_validInput = false;
 			return ;
 		}
 	}
@@ -102,10 +102,9 @@ void		Converter::getFractionPart() {
 	this->_fractionPart = 0;
 	bool	dot = false;
 	int		f = 0;
-	for (size_t i = 0; i < this->_input.length(); i++)
-	{
-		if (this->_input[i] == '.')
-		{
+	for (size_t i = 0; i < this->_input.length(); i++) {
+
+		if (this->_input[i] == '.') {
 			dot = true;
 			continue;
 		}
@@ -140,7 +139,7 @@ bool	Converter::checkInt() {
 	if (this->_validInput == false)
 		return false;
 
-	if (this->_input.length() == 0 || this->_input.length() > 10) {
+	if (this->_input.length() == 0 || this->_input.length() > 11) {
 		this->_int = "impossible";
 		return false;
 	}
@@ -239,17 +238,17 @@ bool	Converter::checkDouble() {
 
 bool	Converter::checkFloat()
 {
-	if (this->_validInput == false)
+	if (_validInput == false)
 		return false;
 
 	if (isInf() || isNan()) {
-		if (this->_input.compare("inf") == 0 || this->_input.compare("inff") == 0 || \
-			this->_input.compare("+inf") == 0 || this->_input.compare("+inff") == 0)
-			this->_fl = "+inff";
-		else if (this->_input.compare("-inf") == 0 || this->_input.compare("-inff") == 0)
-			this->_fl = "-inff";
+		if (_input.compare("inf") == 0 || _input.compare("inff") == 0 || \
+			_input.compare("+inf") == 0 || _input.compare("+inff") == 0)
+			_fl = "+inff";
+		else if (_input.compare("-inf") == 0 || _input.compare("-inff") == 0)
+			_fl = "-inff";
 		else
-			this->_fl = "nanf";
+			_fl = "nanf";
 		return true;
 	}
 	if (this->checkInt()) {
@@ -263,25 +262,28 @@ bool	Converter::checkFloat()
 		return true;
 	}
 	if (this->getSizeWholePart() > 0) {
-		if (atof(this->_input.c_str()) > std::numeric_limits<float>::max()
-				|| atof(this->_input.c_str()) < std::numeric_limits<float>::min()) {
-			if (atof(this->_input.c_str()) > std::numeric_limits<float>::max())
-				this->_fl = "+inff";
+		if (atof(_input.c_str()) > std::numeric_limits<float>::max()
+				|| atof(_input.c_str()) < std::numeric_limits<float>::min()) {
+			if (atof(_input.c_str()) > std::numeric_limits<float>::max())
+				_fl = "+inff";
 			else
-				this->_fl = "-inff";
+				_fl = "-inff";
 			return false;
 		}
 		std::stringstream stream;
-		stream << (atof(this->_input.c_str()));
+		stream << (atof(_input.c_str()));
 		std::string	num = stream.str();
-		if (this->_fractionPart == 0)
+
+
+
+		if (_fractionPart == 0)
 			num += ".0";
 		num += "f";
-		this->_fl = num;
+		_fl = num;
 		return true;
 	}
 	else {
-		this->_fl = "impossible";
+		_fl = "impossible";
 		return false;
 	}
 }
